@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { GlobalContext } from "../context/GlobalContext";
+import { UserContext } from "../context/UserContext";
 
 export function LoginForm() {
-    const { login } = useContext(GlobalContext);
+    const { login } = useContext(UserContext);
 
     // TODO: kai darbai bus baigti - pasalinti email/password reiksmes
     const [email, setEmail] = useState('chuck@norris.com');
@@ -37,7 +37,7 @@ export function LoginForm() {
                 if (data.status === 'success') {
                     setAlertMessage(() => 'Prisijungimas sėkmingas.');
                     setAlertColor(() => 'alert-success');
-                    login(data.role);
+                    login(data.role, data.email, data.registeredAt);
                     navigate('/feed');
                 } else if (data.status === 'error') {
                     setAlertMessage(() => data.msg);
