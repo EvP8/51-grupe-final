@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FeedForm } from "../components/feed-form/FeedForm";
-import { PostsContext } from "../context/PostsContext.jsx";
+import { PostsContext } from "../context/PostsContext";
 import { Post } from "../components/posts/Post";
 
 export function Feed() {
@@ -18,7 +18,7 @@ export function Feed() {
                         {
                             posts.length === 0
                                 ? empty
-                                : posts.map(post => <Post key={post.id} />)
+                                : posts.map(post => <Post key={post.id} post={post} />)
                         }
                     </div>
                 </div>
