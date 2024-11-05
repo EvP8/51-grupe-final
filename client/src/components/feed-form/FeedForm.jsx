@@ -8,13 +8,13 @@ export function FeedForm() {
         e.preventDefault();
 
         const minSize = 1;
-        const maxSize = 420;
+        const maxSize = 1337;
 
         if (text.length < minSize || text.length > maxSize) {
             return;
         }
 
-        fetch('http://localhost:5114', {
+        fetch('http://localhost:5114/api/post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
